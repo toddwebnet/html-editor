@@ -9,6 +9,7 @@ services:
         - PHP_DOCKERFILE_SOURCE=${PHP_DOCKERFILE_SOURCE}
     volumes:
       - ${APP_PATH}:/var/www
+      - ${APP_PATH}/docker/php-fpm/php.ini:/usr/local/etc/php/php.ini
     tty: true
     networks:
       - network
@@ -39,6 +40,7 @@ services:
         - PHP_UPSTREAM_PORT=${PHP_UPSTREAM_PORT}
     volumes:
       - ${APP_PATH}:/var/www
+      - ${APP_PATH}/docker/php-fpm/php.ini:/usr/local/etc/php/php.ini
     expose:
       - ${PHP_UPSTREAM_PORT}
     networks:

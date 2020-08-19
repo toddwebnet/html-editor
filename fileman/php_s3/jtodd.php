@@ -1,12 +1,11 @@
 <?php
 logScriptVars();
 // ini_set('max_execution_time', 9000);
-function logScriptVars()
-{
+function logScriptVars(){
     log_rr([
         '##########################@' => '###########################',
         'SCRIPT' => $_SERVER["SCRIPT_FILENAME"],
-        'METHOD' => array_key_exists('REQUEST_METHOD', $_SERVER) ? $_SERVER['REQUEST_METHOD'] : 'CLI',
+        'METHOD' => $_SERVER['REQUEST_METHOD'],
         'GET' => $_GET,
         'POST' => $_POST,
         'FILES' => $_FILES,
@@ -38,9 +37,7 @@ function tsLog($phase)
 
 log_r('');
 log_r('');
-tsLog(str_replace('/', '|',
-    array_key_exists('REQUEST_URI', $_SERVER) ? $_SERVER['REQUEST_URI'] : 'CLI'
-));
+tsLog(str_replace('/', '|', $_SERVER['REQUEST_URI']));
 
 /*
 
